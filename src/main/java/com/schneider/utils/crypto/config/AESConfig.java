@@ -19,8 +19,8 @@ public class AESConfig implements BaseConfig, KeySizeConfig {
 	private final String keyFactorySpec = "PBKDF2WithHmacSHA256";
 	private final String cipherSpec = "AES/CBC/PKCS5Padding";
 	private final int keySize = 256;
-	private final byte[] salt = {9, 75, 84, 56, 47, -19, -19, 0};
-	private final byte[] iv = {-22, -87, -88, -97, -59, 103, 100, -61, -111, -116, -66, -115, 84, 12, -68, -118};
+	private byte[] salt = {9, 75, 84, 56, 47, -19, -19, 0};
+	private byte[] iv = {-22, -87, -88, -97, -59, 103, 100, -61, -111, -116, -66, -115, 84, 12, -68, -118};
 	
 	/**
 	 * Gets the key factory specification.
@@ -65,10 +65,26 @@ public class AESConfig implements BaseConfig, KeySizeConfig {
 	}
 	
 	/**
+	 * Sets the password salt.
+	 * @param salt The salt to set.  Should be 8 bytes.
+	 */
+	public void setSalt(byte[] salt) {
+		this.salt = salt;
+	}
+	
+	/**
 	 * Gets the initialization vector.
 	 * @return The initialization vector.
 	 */
 	public byte[] getIv() {
 		return iv;
+	}
+	
+	/**
+	 * Sets the initialization vector.
+	 * @param iv The initialization vector.  Should be 16 bytes.
+	 */
+	public void setIv(byte[] iv) {
+		this.iv = iv;
 	}
 }
