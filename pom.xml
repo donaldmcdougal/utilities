@@ -17,6 +17,7 @@
 		<tika.version>1.17</tika.version>
 		<junit.version>4.12</junit.version>
 		<commons-io.version>2.4</commons-io.version>
+		<geoip2.version>2.12.0</geoip2.version>
 	</properties>
 	
 	<dependencies>
@@ -50,6 +51,11 @@
 			<artifactId>tika-serialization</artifactId>
 			<version>${tika.version}</version>
 		</dependency>
+		<dependency>
+	        <groupId>com.maxmind.geoip2</groupId>
+	        <artifactId>geoip2</artifactId>
+	        <version>${geoip2.version}</version>
+	    </dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
