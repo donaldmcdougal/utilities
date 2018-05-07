@@ -49,6 +49,6 @@ public class IPLocator {
 	 * @throws GeoIp2Exception
 	 */
 	public CityResponse locate(String address) throws UnknownHostException, IOException, GeoIp2Exception {
-		return this.reader.city(InetAddress.getByName(address));
+		return this.locate(InetAddress.getByName(address));
 	}
 }
