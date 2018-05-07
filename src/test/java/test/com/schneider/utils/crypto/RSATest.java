@@ -3,6 +3,7 @@ package test.com.schneider.utils.crypto;
 import static org.junit.Assert.*;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
@@ -14,7 +15,6 @@ import java.security.PublicKey;
 import java.security.Security;
 import java.security.SignatureException;
 
-import org.apache.sis.internal.jdk7.StandardCharsets;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.junit.After;
 import org.junit.Before;

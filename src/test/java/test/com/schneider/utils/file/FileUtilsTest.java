@@ -6,6 +6,7 @@ package test.com.schneider.utils.file;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -120,7 +121,7 @@ public class FileUtilsTest {
 		try {
 			utils.splitFile(poemPath, 100, dirToCopy, "poem");
 			utils.joinFile(dirToCopy.resolve("poem.txt"), dirToCopy, "poem", true);
-			assertEquals(org.apache.commons.io.FileUtils.readFileToString(poemPath.toFile()), org.apache.commons.io.FileUtils.readFileToString(dirToCopy.resolve("poem.txt").toFile()));
+			assertEquals(org.apache.commons.io.FileUtils.readFileToString(poemPath.toFile(), StandardCharsets.UTF_8), org.apache.commons.io.FileUtils.readFileToString(dirToCopy.resolve("poem.txt").toFile(), StandardCharsets.UTF_8));
 			assertTrue(poemPath.toFile().delete());
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -150,7 +151,7 @@ public class FileUtilsTest {
 		Path fileToWrite = dirToCopy.resolve("temp.txt");
 		assertTrue(utils.writeStringToFile("test", fileToWrite));
 		try {
-			assertEquals("test", org.apache.commons.io.FileUtils.readFileToString(fileToWrite.toFile()));
+			assertEquals("test", org.apache.commons.io.FileUtils.readFileToString(fileToWrite.toFile(), StandardCharsets.UTF_8));
 		} catch (IOException e) {
 			e.printStackTrace();
 			fail(e.getMessage());

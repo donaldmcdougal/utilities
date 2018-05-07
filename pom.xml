@@ -14,9 +14,9 @@
 		<commons-compress.version>1.16.1</commons-compress.version>
 		<bouncycastle.version>1.59</bouncycastle.version>
 		<mp3agic.version>0.9.1</mp3agic.version>
-		<tika.version>1.17</tika.version>
+		<tika.version>1.18</tika.version>
 		<junit.version>4.12</junit.version>
-		<commons-io.version>2.4</commons-io.version>
+		<commons-io.version>2.6</commons-io.version>
 		<geoip2.version>2.12.0</geoip2.version>
 	</properties>
 	

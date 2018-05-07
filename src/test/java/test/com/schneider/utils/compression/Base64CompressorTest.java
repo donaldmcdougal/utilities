@@ -6,6 +6,7 @@ package test.com.schneider.utils.compression;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -40,7 +41,7 @@ public class Base64CompressorTest {
 		}
 		
 		try {
-			String toCompress = FileUtils.readFileToString(toCompressPath.toFile());
+			String toCompress = FileUtils.readFileToString(toCompressPath.toFile(), StandardCharsets.UTF_8);
 			String compressed = compressor.encodeToString(toCompress);
 			String decompressed = compressor.decodeToString(compressed);
 			assertEquals(toCompress, decompressed);
@@ -76,7 +77,7 @@ public class Base64CompressorTest {
 		}
 		
 		try {
-			String toCompress = FileUtils.readFileToString(toCompressPath.toFile());
+			String toCompress = FileUtils.readFileToString(toCompressPath.toFile(), StandardCharsets.UTF_8);
 			byte[] compressed = compressor.encode(toCompress);
 			String decompressed = compressor.decodeToString(compressed);
 			assertEquals(toCompress, decompressed);
