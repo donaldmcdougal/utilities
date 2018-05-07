@@ -17,7 +17,7 @@ public class DatabaseReaderFactory {
 
 	/**
 	 * Creates a new GeoIP2 DatabaseReader.
-	 * @param file The file to use for the database.
+	 * @param file The file to use for the database.  This should be a GeoIP2 City database file.
 	 * @return A new DatabaseReader object.
 	 * @throws IOException
 	 */
