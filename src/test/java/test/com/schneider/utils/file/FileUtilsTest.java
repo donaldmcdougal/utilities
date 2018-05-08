@@ -61,7 +61,7 @@ public class FileUtilsTest {
 		assertTrue(utils.copyDirectory(dirToCopy, copiedDir));
 		assertTrue(copiedDir.toFile().exists());
 		try {
-			assertEquals(4, Files.list(copiedDir).collect(Collectors.toList()).size());
+			assertEquals(5, Files.list(copiedDir).collect(Collectors.toList()).size());
 		} catch (IOException e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -122,7 +122,7 @@ public class FileUtilsTest {
 			utils.splitFile(poemPath, 100, dirToCopy, "poem");
 			utils.joinFile(dirToCopy.resolve("poem.txt"), dirToCopy, "poem", true);
 			assertEquals(org.apache.commons.io.FileUtils.readFileToString(poemPath.toFile(), StandardCharsets.UTF_8), org.apache.commons.io.FileUtils.readFileToString(dirToCopy.resolve("poem.txt").toFile(), StandardCharsets.UTF_8));
-			assertTrue(poemPath.toFile().delete());
+			assertTrue(dirToCopy.resolve("poem.txt").toFile().delete());
 		} catch (IOException e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -136,7 +136,7 @@ public class FileUtilsTest {
 	public void testListFilesRecursively() {
 		try {
 			List<Path> files = utils.listFilesRecursively(dirToCopy);
-			assertEquals(4, files.size());
+			assertEquals(5, files.size());
 		} catch (IOException e) {
 			e.printStackTrace();
 			fail(e.getMessage());

@@ -28,7 +28,9 @@ public class MetadataExtractorTest {
 	public void testParseToHTML() {
 		try {
 			String html = extractor.parseToHTML(mp3.toFile());
-			System.out.println(html);
+			//System.out.println(html);
+			assertNotNull(html);
+			assertTrue(html.length() > 0);
 		} catch (IOException | SAXException | TikaException e) {
 			e.printStackTrace();
 			fail(e.getMessage());
@@ -39,7 +41,9 @@ public class MetadataExtractorTest {
 	public void testParseToJSON() {
 		try {
 			String html = extractor.parseToJSON(mp3.toFile());
-			System.out.println(html);
+			//System.out.println(html);
+			assertNotNull(html);
+			assertTrue(html.length() > 0);
 		} catch (IOException | SAXException | TikaException e) {
 			e.printStackTrace();
 			fail(e.getMessage());
