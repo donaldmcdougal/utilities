@@ -77,7 +77,7 @@ public abstract class Base {
 	 * @throws IOException
 	 */
 	public final void decryptFile(Key key, File inputFile, File outputFile) throws NoSuchAlgorithmException, NoSuchProviderException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException, IOException {
-		
+		/*
 		FileInputStream fis = new FileInputStream(inputFile);
 		BufferedInputStream bis = new BufferedInputStream(fis);
 		FileOutputStream fos = new FileOutputStream(outputFile);
@@ -97,6 +97,12 @@ public abstract class Base {
 	    fis.close();
 	    bos.close();
 	    fos.close();
+	    */
+		FileInputStream fis = new FileInputStream(inputFile);
+		FileOutputStream fos = new FileOutputStream(outputFile);
+		this.decryptStream(key, fis, fos);
+		fos.close();
+		fis.close();
 	}
 	
 	/**
@@ -164,6 +170,7 @@ public abstract class Base {
 			NoSuchPaddingException, InvalidKeyException,
 			InvalidAlgorithmParameterException, IOException {
 		
+		/*
 		FileInputStream fis = new FileInputStream(inputFile);
 		BufferedInputStream bis = new BufferedInputStream(fis);
 		FileOutputStream fos = new FileOutputStream(outputFile);
@@ -182,6 +189,12 @@ public abstract class Base {
 		bos.close();
 		fos.close();
 		bis.close();
+		fis.close();
+		*/
+		FileInputStream fis = new FileInputStream(inputFile);
+		FileOutputStream fos = new FileOutputStream(outputFile);
+		this.encryptStream(key, fis, fos);
+		fos.close();
 		fis.close();
 	}
 	
