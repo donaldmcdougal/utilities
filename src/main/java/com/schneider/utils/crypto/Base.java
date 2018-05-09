@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.Key;
@@ -98,6 +100,36 @@ public abstract class Base {
 	}
 	
 	/**
+	 * Decrypts a stream.
+	 * @param key The key used to decrypt the file.
+	 * @param input The input stream.
+	 * @param output The output stream.
+	 * @throws InvalidKeyException
+	 * @throws NoSuchAlgorithmException
+	 * @throws NoSuchProviderException
+	 * @throws NoSuchPaddingException
+	 * @throws InvalidAlgorithmParameterException
+	 * @throws IOException
+	 */
+	public final void decryptStream(Key key, InputStream input, OutputStream output) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchProviderException, NoSuchPaddingException, InvalidAlgorithmParameterException, IOException {
+		BufferedInputStream bis = new BufferedInputStream(input);
+		BufferedOutputStream bos = new BufferedOutputStream(output);
+		
+		Cipher cipher = this.generateDecryptionCipher(key);
+	    
+	    CipherInputStream cis = new CipherInputStream(bis, cipher);
+	    
+	    byte[] block = new byte[8];
+	    int i;
+	    while ((i = cis.read(block)) != -1) {
+	    	bos.write(block, 0, i);
+	    }
+	    cis.close();
+	    bis.close();
+	    bos.close();
+	}
+	
+	/**
 	 * Encrypts some data using a secret key.
 	 * @param key The key used to encrypt data.
 	 * @param data The data to encrypt.
@@ -151,6 +183,36 @@ public abstract class Base {
 		fos.close();
 		bis.close();
 		fis.close();
+	}
+	
+	/**
+	 * Encrypts a stream.
+	 * @param key The key used to encrypt data.
+	 * @param input The input stream.
+	 * @param output The output stream.
+	 * @throws InvalidKeyException
+	 * @throws NoSuchAlgorithmException
+	 * @throws NoSuchProviderException
+	 * @throws NoSuchPaddingException
+	 * @throws InvalidAlgorithmParameterException
+	 * @throws IOException
+	 */
+	public final void encryptStream(Key key, InputStream input, OutputStream output) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchProviderException, NoSuchPaddingException, InvalidAlgorithmParameterException, IOException {
+		BufferedInputStream bis = new BufferedInputStream(input);
+		BufferedOutputStream bos = new BufferedOutputStream(output);
+		
+		Cipher cipher = this.generateEncryptionCipher(key);
+		
+		CipherOutputStream cos = new CipherOutputStream(bos, cipher);
+		
+		byte[] block = new byte[8];
+		int i;
+		while ((i = bis.read(block)) != -1) {
+			cos.write(block, 0, i);
+		}
+		cos.close();
+		bos.close();
+		bis.close();
 	}
 	
 	/**

@@ -33,7 +33,7 @@ public class AES extends Base {
 	
 	/**
 	 * Generates a secret key.
-	 * @param keyGenerator The key generator to use to generate the key.
+	 * @param password The password used to generate the secret key.
 	 * @return The generated secret key.
 	 * @throws InvalidKeySpecException 
 	 * @throws NoSuchAlgorithmException 
@@ -44,6 +44,17 @@ public class AES extends Base {
 		SecretKey tmp = factory.generateSecret(spec);
 		SecretKey secret = new SecretKeySpec(tmp.getEncoded(), config.getAlgorithm());
 		return secret;
+	}
+	
+	/**
+	 * Generates a secret key.
+	 * @param password The password used to generate the secret key.
+	 * @return The generated secret key.
+	 * @throws InvalidKeySpecException
+	 * @throws NoSuchAlgorithmException
+	 */
+	public SecretKey generateSecretKey(String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
+		return this.generateSecretKey(password.toCharArray());
 	}
 	
 	/*
