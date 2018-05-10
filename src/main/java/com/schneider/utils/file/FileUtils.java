@@ -164,7 +164,7 @@ public class FileUtils {
 			String fName = file.toFile().getName().toLowerCase();
 			int dotPos = fName.lastIndexOf(".");
 			if (dotPos == -1) { // a file with no extension
-				return fName;
+				return "";
 			} else if (dotPos == fName.length() - 1) { // a file with a dot at the end.
 				return "";
 			} else {
