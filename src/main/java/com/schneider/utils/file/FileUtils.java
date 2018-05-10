@@ -130,7 +130,7 @@ public class FileUtils {
 	/**
 	 * Gets the number of chunks that would be created from a file with the given size and the size of each chunk.
 	 * @param fileSize The size of the file, in bytes.
-	 * @param chunkSize The size of each piece of the file after splitting.
+	 * @param chunkSize The size of each piece of the file after splitting, in bytes.
 	 * @return The number of chunks that would be created, or -1 if it is impossible to calculate the number of chunks
 	 * because the parameters are bad.
 	 */
