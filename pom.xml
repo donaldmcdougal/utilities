@@ -11,10 +11,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<commons-compress.version>1.16.1</commons-compress.version>
-		<bouncycastle.version>1.59</bouncycastle.version>
+		<commons-compress.version>1.18</commons-compress.version>
+		<bouncycastle.version>1.60</bouncycastle.version>
 		<mp3agic.version>0.9.1</mp3agic.version>
-		<tika.version>1.18</tika.version>
+		<tika.version>1.19.1</tika.version>
 		<junit.version>4.12</junit.version>
 		<commons-io.version>2.6</commons-io.version>
 		<geoip2.version>2.12.0</geoip2.version>
@@ -83,7 +83,7 @@
 		<dependency>
 			<groupId>org.xerial</groupId>
 			<artifactId>sqlite-jdbc</artifactId>
-			<version>3.21.0.1</version>
+			<version>3.25.2</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
